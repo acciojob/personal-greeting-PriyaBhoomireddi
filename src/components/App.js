@@ -1,29 +1,23 @@
-import React, { useState } from "react";
-import './../styles/App.css';
+import React, { useState } from 'react'
 
 const App = () => {
-  // Initialize the state to manage the user's name
-  const [name, setName] = useState("");
-
-  // Function to handle changes in the input field
-  const handleChange = (event) => {
-    setName(event.target.value);
-  };
-
+  const [text, setText] = useState()
+  console.log(text)
   return (
     <div>
-      {/* Input field for the user to enter their name */}
-      <input 
-        type="text" 
-        placeholder="Enter your name" 
-        value={name} 
-        onChange={handleChange} 
-      />
       
-      {/* Display the personalized greeting */}
-      <p>{name ? `Hello, ${name}!` : "Please enter your name."}</p>
-    </div>
-  );
-};
 
-export default App;
+      <label htmlFor='ip'>Enter your name:</label><br/>
+      <input id='ip' type='text' onChange={(e) => {
+        setText(e.target.value)
+      }} />
+
+      {/* {text && <p>Hello {text}!</p>} */}
+
+      <p>{text && `Hello ${text}!`}</p>
+
+    </div>
+  )
+}
+
+export default App
